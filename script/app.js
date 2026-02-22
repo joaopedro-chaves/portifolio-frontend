@@ -1,4 +1,4 @@
-const fileMarkdown = 'exemplo.md';
+const fileStatus = 'status.md';
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger-menu');
