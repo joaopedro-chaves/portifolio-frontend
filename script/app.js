@@ -1,5 +1,3 @@
-const fileStatus = 'status.md';
-
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger-menu');
     const navList = document.querySelector('.nav-list');
@@ -10,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    loadMarkdown();
+    // loadMarkdown();
 
     // --- Language Switch Logic ---
     const langSwitches = document.querySelectorAll('.lang-switch span:not(.divider)');
-    
+
     // Check local storage or default to English
     let currentLang = localStorage.getItem('portfolio_lang') || 'en';
     changeLanguage(currentLang);
@@ -27,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 currentLang = 'en';
             }
-            
+
             localStorage.setItem('portfolio_lang', currentLang);
             changeLanguage(currentLang);
         });
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const elementsToTranslate = document.querySelectorAll('[data-i18n]');
         elementsToTranslate.forEach(element => {
             const key = element.getAttribute('data-i18n');
-            if (translations[lang] && translations[lang][key]) {
+            if (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) {
                 // We use innerHTML here since some translations might include span tags
                 element.innerHTML = translations[lang][key];
             }
@@ -54,13 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+/* --- Markdown Logic ---
 async function loadMarkdown() {
     const container = document.getElementById('markdown-content');
     const filePath = 'media/status.md'; // path to markdown file
 
     try {
         const response = await fetch(filePath);
-            
+
         if (!response.ok) {
             throw new Error('Failed to load markdown file');
         }
@@ -78,4 +77,4 @@ async function loadMarkdown() {
             </div>
         `;
     }
-}
+} */ 

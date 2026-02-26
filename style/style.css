@@ -2,18 +2,16 @@
 :root {
   --bg: #0d1117;
   --accent: #abb2bf;
-  --accent-line: #6e7681;
   --button-bg: #1c1c21;
   --button-hover: #282828;
   --border: #2f333d;
-  --text: #a1a9ba;
   --white: #ffffff;
   --gray: #abb2bf;
 
   /* Tags Colors */
   --programming: #7EE787;
   --frontend: #6CB6FF;
-  --ia: #C674F5;
+  --ai: #C674F5;
   --devops: #F67A7C;
   --innovation: #FFA657;
   --design: #F892C7;
@@ -74,7 +72,7 @@ img {
   color: var(--frontend);
 }
 .highlight_purple {
-  color: var(--ia);
+  color: var(--ai);
 }
 .highlight_red {
   color: var(--devops);
@@ -90,16 +88,6 @@ img {
 }
 .highlight_cyan {
   color: var(--tools);
-}
-
-
-
-.line {
-  height: 1px;
-  background-color: var(--accent-line);
-  flex-grow: 1;
-  margin-left: 1rem;
-  max-width: 500px;
 }
 
 .btn {
@@ -241,10 +229,15 @@ img {
 
 .hero-title {
   font-family: var(--font-main);
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 52px;
+  font-weight: normal;
   margin-bottom: 1rem;
   line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero-title span[class^="highlight_"] {
+  font-weight: bold;
 }
 
 .hero-desc {
@@ -440,7 +433,7 @@ img {
   background-color: var(--tools);
 }
 .skill-title-ai {
-  background-color: var(--ia);
+  background-color: var(--ai);
 }
 .skill-title-other {
   background-color: var(--other);
@@ -597,7 +590,7 @@ img {
   background-color: transparent;
   border: 1px solid var(--border);
   border-radius: 40px;
-  padding: 3.5rem;
+  padding: 46px;
   width: 100%;
   max-width: 900px;
 }
@@ -618,14 +611,16 @@ img {
 }
 
 .info-label {
+  font-family: var(--font-text);
   color: var(--gray);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
 .info-value {
+  font-family: var(--font-text);
   color: var(--white);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
@@ -972,6 +967,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border-radius: 0 8px 8px 0;
 }
 
 .working-on-content {
@@ -980,9 +976,27 @@ img {
   gap: 1rem;
 }
 
-.working-icon {
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.working-icon.active {
+  animation: blink 1s infinite; /* pisca a cada 1 segundo */
   color: var(--programming);
   font-size: 0.8rem;
+}
+
+.working-icon.disable {
+  animation: none;
+  color: var(--gray);
 }
 
 .working-on-title {
