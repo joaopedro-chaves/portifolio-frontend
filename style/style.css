@@ -68,24 +68,31 @@ img {
 .highlight_green {
   color: var(--programming);
 }
+
 .highlight_blue {
   color: var(--frontend);
 }
+
 .highlight_purple {
   color: var(--ai);
 }
+
 .highlight_red {
   color: var(--devops);
 }
+
 .highlight_yellow {
   color: var(--mobile);
 }
+
 .highlight_orange {
   color: var(--innovation);
 }
+
 .highlight_pink {
   color: var(--design);
 }
+
 .highlight_cyan {
   color: var(--tools);
 }
@@ -122,7 +129,7 @@ img {
   display: block;
   width: fit-content;
   margin: 2rem auto 0;
-  padding: 8px 200px;
+  padding: 8px clamp(24px, 8vw, 80px);
   font-size: 1rem;
 }
 
@@ -229,7 +236,7 @@ img {
 
 .hero-title {
   font-family: var(--font-main);
-  font-size: 52px;
+  font-size: clamp(2rem, 5vw, 52px);
   font-weight: normal;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -302,7 +309,8 @@ img {
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid var(--gray);
-  background-color: var(--bg); /* Placeholder color */
+  background-color: var(--bg);
+  /* Placeholder color */
   border-radius: 8px 8px 0 0;
 }
 
@@ -327,30 +335,39 @@ img {
 .card-tag-tech span.frontend {
   background-color: var(--frontend);
 }
+
 .card-tag-tech span.backend {
   background-color: var(--backend);
 }
+
 .card-tag-tech span.datascience {
   background-color: var(--datascience);
 }
+
 .card-tag-tech span.tools {
   background-color: var(--tools);
 }
+
 .card-tag-tech span.ai {
   background-color: var(--ai);
 }
+
 .card-tag-tech span.design {
   background-color: var(--design);
 }
+
 .card-tag-tech span.mobile {
   background-color: var(--mobile);
 }
+
 .card-tag-tech span.programming {
   background-color: var(--programming);
 }
+
 .card-tag-tech span.innovation {
   background-color: var(--innovation);
 }
+
 .card-tag-tech span.other {
   background-color: var(--other);
 }
@@ -402,7 +419,7 @@ img {
 .skill-category {
   border: 1px solid var(--accent);
   border-radius: 8px;
-  width: 200px;
+  width: clamp(160px, 200px, 100%);
 }
 
 .skill-title,
@@ -423,33 +440,43 @@ img {
 .skill-title-programming {
   background-color: var(--programming);
 }
+
 .skill-title-datascience {
   background-color: var(--datascience);
 }
+
 .skill-title-devops {
   background-color: var(--devops);
 }
+
 .skill-title-tools {
   background-color: var(--tools);
 }
+
 .skill-title-ai {
   background-color: var(--ai);
 }
+
 .skill-title-other {
   background-color: var(--other);
 }
+
 .skill-title-backend {
   background-color: var(--backend);
 }
+
 .skill-title-frontend {
   background-color: var(--frontend);
 }
+
 .skill-title-mobile {
   background-color: var(--mobile);
 }
+
 .skill-title-design {
   background-color: var(--design);
 }
+
 .skill-title-innovation {
   background-color: var(--innovation);
 }
@@ -541,7 +568,7 @@ img {
 
 .lets-text {
   font-family: var(--font-main);
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1;
@@ -565,11 +592,12 @@ img {
 
 .work-together-text {
   font-family: var(--font-main);
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--white);
   margin-bottom: 2.5rem;
-  line-height: 1;
+  line-height: 1.3;
+  letter-spacing: -1px;
 }
 
 .contacts-desc {
@@ -713,18 +741,58 @@ img {
 }
 
 /* Responsive */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .hero-container {
+    gap: 1.5rem;
+  }
+
+  .hero-image {
+    max-width: 320px;
+  }
+
+  .about-content {
+    gap: 2rem;
+  }
+
+  .contacts-container {
+    gap: 2.5rem;
+  }
+
+  .contacts-card {
+    border-radius: 24px;
+    padding: 32px;
+  }
+
+  .skills-grid {
+    gap: 1rem;
+  }
+
+  .quote-section {
+    margin-bottom: 8rem;
+  }
+
+  .quote-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
 @media (max-width: 768px) {
   .nav-list {
-    display: none; /* Hide nav links on mobile for now */
+    display: none;
     position: absolute;
-    top: 60px;
+    top: 72px;
     left: 0;
     width: 100%;
     background-color: var(--bg);
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    border-bottom: 1px solid var(--gray);
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
   }
 
   .nav-list.active {
@@ -733,6 +801,27 @@ img {
 
   .hamburger-menu {
     display: flex;
+  }
+
+  /* Hamburger → X animation */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hamburger-menu span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hero {
+    margin-top: 2rem;
   }
 
   .hero-container {
@@ -752,7 +841,25 @@ img {
   }
 
   .hero-image {
-    display: none; /* often clearer on mobile */
+    display: none;
+  }
+
+  .quote-section {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+  }
+
+  .section-header {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
   }
 
   .skills-content {
@@ -765,6 +872,10 @@ img {
     flex-wrap: wrap;
   }
 
+  .skill-category {
+    width: min(100%, 280px);
+  }
+
   .about-content {
     flex-direction: column;
   }
@@ -773,19 +884,26 @@ img {
     display: none;
   }
 
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .contacts {
+    padding: 3rem 0;
+  }
+
   .contacts-container {
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     text-align: center;
   }
 
   .lets-work-header {
     justify-content: center;
-  }
-
-  .lets-text,
-  .work-together-text {
-    font-size: 2.5rem;
   }
 
   .contacts-desc {
@@ -794,10 +912,17 @@ img {
 
   .contacts-right {
     justify-content: center;
+    width: 100%;
   }
 
   .contacts-card {
-    padding: 2rem;
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .contacts-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .contact-info-grid {
@@ -807,8 +932,17 @@ img {
 
   .card-bottom {
     flex-direction: column;
-    gap: 2rem;
-    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -980,16 +1114,19 @@ img {
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 .working-icon.active {
-  animation: blink 1s infinite; /* pisca a cada 1 segundo */
+  animation: blink 1s infinite;
+  /* pisca a cada 1 segundo */
   color: var(--programming);
   font-size: 0.8rem;
 }
