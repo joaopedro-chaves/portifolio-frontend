@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // loadMarkdown();
-
     // --- Language Switch Logic ---
     const langSwitches = document.querySelectorAll('.lang-switch span:not(.divider)');
 
@@ -52,30 +50,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-/* --- Markdown Logic ---
-async function loadMarkdown() {
-    const container = document.getElementById('markdown-content');
-    const filePath = 'media/status.md'; // path to markdown file
-
-    try {
-        const response = await fetch(filePath);
-
-        if (!response.ok) {
-            throw new Error('Failed to load markdown file');
-        }
-
-        const markdownText = await response.text();
-
-        container.innerHTML = marked.parse(markdownText);
-
-    } catch (error) {
-        container.innerHTML = `
-            <div class="bg-red-50 p-4 rounded border border-red-200 text-red-700 text-center">
-                <p class="font-bold">Error loading markdown file</p>
-                <p class="text-sm">${error.message}</p>
-                <p class="mt-2 text-xs text-gray-500">(Note: To test locally, you need a local server due to browser CORS policies)</p>
-            </div>
-        `;
-    }
-} */ 

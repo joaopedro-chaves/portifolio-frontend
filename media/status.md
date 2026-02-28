@@ -1,9 +1,0 @@
-# Título do Markdown
-
-Este é um arquivo separado que está sendo lido pelo HTML.
-
-> Funcionalidades demonstradas:
-> - Renderização dinâmica.
-> - Separação de conteúdo e estrutura.
-> - Uso de **negrito** e *itálico*.
-> - A integração de Markdown permite focar no conteúdo enquanto o HTML cuida da apresentação.
