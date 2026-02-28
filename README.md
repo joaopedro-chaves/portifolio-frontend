@@ -1,4 +1,4 @@
-# João Pedro | Portfolio
+# Portfolio Front-end
 
 [Português](#português) | [English](#english)
 
